@@ -1,0 +1,120 @@
+<!--sun7up - commit ID v66.0 fix patch 1-->
+<!--功能更新完毕-->
+<head>
+<title id="title">UP主测评</title>
+</head>
+<link href="tubiao4.png" rel="shortcut icon">
+<body>
+粉丝数量：<input type="text" id="fansp"></input><br>
+稿件数量：<input type="text" id="videosp"></input><br>
+观看数量：<input type="text" id="watchesp"></input><br>
+评论数量：<input type="text" id="discussesp"></input><br>
+弹幕数量：<input type="text" id="danmup"></input><br>
+点赞数量：<input type="text" id="likesp"></input><br>
+分享数量：<input type="text" id="sharesp"></input><br>
+硬币数量：<input type="text" id="coinsp"></input><br>
+收藏数量：<input type="text" id="starsp"></input><br>
+UP天数：<input type="text" id="updays"></input><br>
+账户名称：<input type="text" id="upname"></input><br>
+  <input type="button" onclick="test()" value="提交"><br><br>
+  <font size="5">播放量得分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s1p">-</p></font>
+  <font size="5">平均播放分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s2p">-</p></font>
+  <font size="5">观看币率分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s3p">-</p></font>
+  <font size="5">观看赞率分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s4p">-</p></font>
+  <font size="5">观看收藏分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s5p">-</p></font>
+  <font size="5">路转粉率分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s6p">-</p></font>
+  <font size="5">观看分享分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s7p">-</p></font>
+  <font size="5">互动活跃分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s8p">-</p></font>
+  <font size="20"><p id="scores1">视频质量篇-总分：-</p></font>
+  <font size="5">日均播放分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s9p">-</p></font>
+  <font size="5">视频产量分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s10p">-</p></font>
+  <font size="5">日均点赞分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s11p">-</p></font>
+  <font size="5">日均硬币分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s12p">-</p></font>
+  <font size="5">日均弹幕分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s13p">-</p></font>
+  <font size="5">日均评论分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s14p">-</p></font>
+  <font size="20"><p id="scores2">日均活跃篇-总分：-</p></font>
+  <font size="5">累计点赞分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s15p">-</p></font>
+  <font size="5">累计硬币分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s16p">-</p></font>
+  <font size="5">累计分享分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s17p">-</p></font>
+  <font size="5">累计粉丝分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s18p">-</p></font>
+  <font size="5">累计稿件分</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color=Red><p id="s19p">-</p></font>
+  <font size="20"><p id="scores3">累计成就篇-总分：-</p></font>
+  <font size="6"><div style="background:url(荣誉证书.png) no-repeat center center;width:1197px;height:612px">
+    <br><br><br><span id="upname2"><font size="7"></font></span><font size="8"><div id="mont"></div></font>
+    <div style="height:45px" id="ryzs1"></div><div style="height:45px" id="ryzs2"></div><div style="height:45px" id="ryzs3"></div><div style="height:45px" id="ryzs4"></div>
+  </div></font>
+<script>
+  function test(){
+  var fans = document.getElementById("fansp").value;
+  var videos = document.getElementById("videosp").value;
+  var watches = document.getElementById("watchesp").value;
+  var discusses = document.getElementById("discussesp").value;
+  var danmu = document.getElementById("danmup").value;
+  var likes = document.getElementById("likesp").value;
+  var shares = document.getElementById("sharesp").value;
+  var coins = document.getElementById("coinsp").value;
+  var stars = document.getElementById("starsp").value;
+  var upday = document.getElementById("updays").value;
+
+  var s1 = Math.round(watches/10);
+  var s2 = Math.round(watches/videos*5);
+  var s3 = Math.round(coins/watches*60000);
+  var s4 = Math.round(likes/watches*6000);
+  var s5 = Math.round(stars/watches*72000);
+  var s6 = Math.round(fans/watches*300000);
+  var s7 = Math.round(shares/watches*600000);
+  var s8 = Math.round(((parseInt(danmu)+parseInt(discusses))/watches)*10000);
+  document.getElementById("s1p").innerHTML=(""+s1);
+  document.getElementById("s2p").innerHTML=(""+s2);
+  document.getElementById("s3p").innerHTML=(""+s3);
+  document.getElementById("s4p").innerHTML=(""+s4);
+  document.getElementById("s5p").innerHTML=(""+s5);
+  document.getElementById("s6p").innerHTML=(""+s6);
+  document.getElementById("s7p").innerHTML=(""+s7);
+  document.getElementById("s8p").innerHTML=(""+s8);
+  var s1s8 = s1+s2+s3+s4+s5+s6+s7+s8;
+  document.getElementById("scores1").innerHTML=("视频质量篇-总分："+s1s8);
+    
+  var s9 = Math.round(watches/upday*40);
+  var s10 = Math.round(videos/upday*20000);
+  var s11 = Math.round(likes/upday*400);
+  var s12 = Math.round(coins/upday*4000);
+  var s13 = Math.round(danmu/upday*400);
+  var s14 = Math.round(discusses/upday*2000);
+  document.getElementById("s9p").innerHTML=(""+s9);
+  document.getElementById("s10p").innerHTML=(""+s10);
+  document.getElementById("s11p").innerHTML=(""+s11);
+  document.getElementById("s12p").innerHTML=(""+s12);
+  document.getElementById("s13p").innerHTML=(""+s13);
+  document.getElementById("s14p").innerHTML=(""+s14);
+  var s9s14 = s9+s10+s11+s12+s13+s14;
+  document.getElementById("scores2").innerHTML=("日均活跃篇-总分："+s9s14);
+  
+  var s15 = Math.round(likes-coins/2+500);
+  var s16 = Math.round(coins*10-videos*10+500);
+  var s17 = Math.round(shares*100-videos*15+500);
+  var s18 = Math.round(fans*50-videos*10+500);
+  var s19 = Math.round(videos*100-upday);
+  document.getElementById("s15p").innerHTML=(""+s15);
+  document.getElementById("s16p").innerHTML=(""+s16);
+  document.getElementById("s17p").innerHTML=(""+s17);
+  document.getElementById("s18p").innerHTML=(""+s18);
+  document.getElementById("s19p").innerHTML=(""+s19);
+  var s15s19 = s15+s16+s17+s18+s19;
+  document.getElementById("scores3").innerHTML=("累计成就篇-总分："+s15s19);
+  
+  var now = new Date();
+  var month=now.getMonth()+1;
+  document.getElementById("upname2").innerHTML=("<font size=7px>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+document.getElementById("upname").value+"</font>");
+  document.getElementById("mont").innerHTML=("<font size=6px>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+month+"</font>");
+  document.getElementById("ryzs1").innerHTML=("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+s1s8);
+  document.getElementById("ryzs2").innerHTML=("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+s9s14);
+  document.getElementById("ryzs3").innerHTML=("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+s15s19);
+  document.getElementById("ryzs4").innerHTML=("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(parseInt(s1s8)+parseInt(s9s14)+parseInt(s15s19)));
+  document.getElementById("title").innerHTML=("UP主测评 - 得分"+(parseInt(s1s8)+parseInt(s9s14)+parseInt(s15s19)));
+  }
+</script>
+<a href="菜单.html"><font size=8px color=Blue face="楷体">返回菜单</font></a>
+<p>作者：b站-<a href="https://space.bilibili.com/393479166" target="_blank">友谊の力量</a></p>
+</body>
+
