@@ -1,0 +1,22 @@
+<script type="text/javascript"> 
+    function password() {   
+    var testV = 1;   
+    var pass1 = prompt('请输入密码进入游戏:','');   
+    while (testV < 3) {   
+    if (!pass1)    
+    history.go(-1);   
+    if (pass1 == "go!") {//这个是密码，别看了（狗头）
+    alert('密码正确，点击确定前往菜单（打赌你一定ctrl u过（滑稽）)');   
+    window.location.href="index.html";
+    break;   
+    }    
+    testV+=1;   
+    var pass1 =    
+    prompt('密码错误(一共三次机会）','');   
+    }   
+    if (pass1!="password" & testV ==3)//一共三次机会
+    history.go(-1);   
+    return " ";   
+    }    
+    document.write(password());   
+    </script>
